@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101a2f" />
+    <title>踩地雷｜Minefield</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="回到首頁">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span class="brand-copy"><b>minefield</b><small>踩地雷練習場</small></span>
+        </a>
+        <div class="topbar-note"><span class="live-dot"></span> PLAY SMART · STAY CALM</div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="eyebrow"><span class="eyebrow-line"></span> CLASSIC PUZZLE / 001</div>
+          <h1>每一步，都是<br /><em>判斷力</em>的練習。</h1>
+          <p class="hero-copy">用邏輯拆解每一格，找出安全路徑。<br />小心，雷區就在下一步。</p>
+        </section>
+
+        <section class="game-layout" aria-label="踩地雷遊戲區">
+          <div class="game-card">
+            <div class="game-card-top">
+              <div>
+                <p class="section-label">CURRENT MISSION</p>
+                <h2 id="difficulty-name">初級雷區</h2>
+              </div>
+              <button class="icon-button" id="restart-button" type="button" aria-label="重新開始" title="重新開始">↻</button>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-pill"><span class="stat-icon flag-icon">⚑</span><span><small>剩餘地雷</small><strong id="mine-count">010</strong></span></div>
+              <div class="stat-pill"><span class="stat-icon clock-icon">◷</span><span><small>遊戲時間</small><strong id="timer">000</strong></span></div>
+              <div class="stat-pill mood-pill"><span id="face">●</span><span><small>狀態</small><strong id="status-text">準備中</strong></span></div>
+            </div>
+
+            <div class="board-wrap">
+              <div id="board" class="board" role="grid" aria-label="踩地雷棋盤"></div>
+              <div id="game-overlay" class="game-overlay hidden" aria-live="polite">
+                <div class="overlay-card">
+                  <span id="overlay-icon">✦</span>
+                  <h3 id="overlay-title">任務完成</h3>
+                  <p id="overlay-copy">你清空了整座雷區。</p>
+                  <button class="primary-button" id="overlay-restart" type="button">再玩一局</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="board-footer">
+              <div class="legend"><span class="legend-dot safe-dot"></span>安全區 <span class="legend-dot mine-dot"></span>地雷區</div>
+              <button class="flag-mode-button" id="flag-mode" type="button" aria-pressed="false"><span>⚑</span> 旗標模式</button>
+            </div>
+          </div>
+
+          <aside class="side-panel">
+            <div class="side-block">
+              <p class="section-label">SELECT LEVEL</p>
+              <div class="difficulty-list" role="group" aria-label="選擇難度">
+                <button class="difficulty-button active" data-level="beginner" type="button"><span><b>初級</b><small>9 × 9</small></span><strong>10 <i>MINES</i></strong></button>
+                <button class="difficulty-button" data-level="intermediate" type="button"><span><b>中級</b><small>16 × 16</small></span><strong>40 <i>MINES</i></strong></button>
+                <button class="difficulty-button" data-level="expert" type="button"><span><b>專家</b><small>30 × 16</small></span><strong>99 <i>MINES</i></strong></button>
+              </div>
+            </div>
+
+            <div class="side-block how-to-play">
+              <p class="section-label">HOW TO PLAY</p>
+              <ol>
+                <li><span>01</span><p>點擊格子來揭開未知區域。</p></li>
+                <li><span>02</span><p>數字代表周圍八格的地雷數。</p></li>
+                <li><span>03</span><p>右鍵或開啟旗標模式標記地雷。</p></li>
+              </ol>
+            </div>
+
+            <div class="tip-card">
+              <span class="tip-spark">✦</span>
+              <div><b>小提醒</b><p>第一次點擊一定安全，放心開始。</p></div>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="footer"><span>MINESWEEPER, REIMAGINED.</span><span>BUILT FOR FOCUS <i>♥</i></span></footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
